@@ -1,0 +1,30 @@
+ednussi
+
+
+------------------Design Decisions------------------
+
+Since this excersice was suppose to be about design, and in order to allow as much 
+polymorphisem with keeping as many of the oop principles we have
+already learned I chose to follow the next design:
+
+Rankable is used sort of an implements father to rankable song - a regular song
+doesn't need or have a score feature.
+Song is the main abstract father of the songs containning the most initial data and
+functions.
+Using inheritance, Thus creating a rankableSong which is the father to the 
+two possible options of songs.
+
+By doing so it was possible to make many of the function as virtual and be implemented as needed
+in each of the children - creating a clean and neat look for the program using the polymorphisem.
+
+Another choice was making an all static class parser which is the only one who knows the main 
+logic and how we get the data. it parses and returns the proper information in the wanted objects.
+
+In addition the SongDataBase holds all of the information and is the only one who runs the actual
+required operation on the songs - he is the main worker while MIR is the manager.
+
+-------------------Songs Hierarchy-------------------
+
+					Rankable 			Song
+	  						RankableSong
+	 RankableInstrumentalSong 			RankableLyricSong

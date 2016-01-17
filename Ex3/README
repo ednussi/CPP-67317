@@ -1,0 +1,70 @@
+ednussi
+
+
+------------------Answers To Questions------------------
+
+						Time in Seconds
+					  Averege of 100 runs
+_______________________________________________________________
+|                              |                               |
+|              Big             |              Small            |
+|______________________________|_______________________________|
+|               |              |                |              |
+|       *       |       +      |       *        |       +      |
+|_______________|______________|________________|______________|
+|               |              |                |              |
+|    2.77863    |   0.020133   |    3.81e-05    |   4.64e-05   | Parallel
+|_______________|______________|________________|______________|
+|               |              |                |              |
+|    13.0106    |   0.008341   |    8.12e-07    |   6.46e-07   | Sequential
+|_______________|______________|________________|______________|
+
+
+i) 
+There are differences in the two sets obiously.
+
+______________________________________In a big file_________________________________________
+
+Why Sequential Addition is Better?
+
+Big file represents a 1000X1000 Matrix.
+We must not forget that there is additional time when using threads.
+In my implementation there is additional time to create additional members
+like the vector of threads. The time it takes to create and initialize each thread
+and lets not forget the time it takes to manage and swap the threads themselves.
+
+Since all these operation do take their toll for a simple operation such as an addition, 
+the parallel overhead is bigger than the time the actual operation take.
+
+Why Parallel Multiplaction is Better?
+
+Since multiplacation of matrices is a complex operation involving many mini-task
+the multi-processor is able to optimize the threads - which each one gets a smaller
+task, resulting in the overhead being relatavely small compare the time saved while running
+multiple threads. 
+
+______________________________________In a small file_______________________________________
+
+
+why Sqequential is Betters in both * and + ?
+
+Small file represents a 2X2 Matrix.
+As mentioned above the overhead of creating additional information, passing between functions,
+creating the threads and container for them, initializing them and managing their swaps is 
+overwhelming comparing to the amount of work actually required and therfore in small files
+a sequential run is always better.
+
+
+ii) 
+There are differences in adding or subtracting comparing to multiply obiously.
+
+Running a + operation is always faster than running the * operation
+because of their nature.
+
+When computing a single cell in the new matrix a single +/-between the two matrices is 
+needed inorder to calculates the value of the new cell in + and - operations. 
+In multiplaction we need to go through multiple addition operation of * according
+to the number of columns of the first matrix (or rows of the second).
+
+Not only are there more operations to do which take more time but it will take
+additional time to enter all of the extra cells comapring to addition.
